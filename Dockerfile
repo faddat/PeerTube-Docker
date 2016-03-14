@@ -8,17 +8,16 @@ RUN apt-get clean
 
 RUN mkdir -p /data/db
 
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 RUN apt-get -y install -y nodejs
 RUN npm install -g electron-prebuilt
-RUN npm install -g grunt-cli
 
 WORKDIR /root
 
 RUN git clone https://github.com/Chocobozzz/PeerTube
-WORKDIR PeerTube 
+WORKDIR PeerTube
 RUN npm install
-RUN grunt build
+RUN npm run build
 
 ADD peertube_start.sh /usr/bin/peertube_start.sh
 RUN chmod +x /usr/bin/peertube_start.sh

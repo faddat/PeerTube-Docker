@@ -2,4 +2,4 @@
 
 /usr/bin/mongod &
 sleep 100
-cd /root/PeerTube && grunt build && node server.js
+cd /root/PeerTube && npm run build && npm start
