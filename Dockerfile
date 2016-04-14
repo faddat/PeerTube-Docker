@@ -12,16 +12,21 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 RUN apt-get -y install -y nodejs
 RUN npm install -g electron-prebuilt
 
-WORKDIR /root
+RUN useradd -m -d /home/peertube_user -s /bin/bash -p peertube_user peertube_user
+
+WORKDIR /home/peertube_user
+
+ADD peertube_start.sh /home/peertube_user/peertube_start.sh
+RUN chown peertube_user /home/peertube_user/peertube_start.sh
+RUN chmod +x /home/peertube_user/peertube_start.sh
+
+USER peertube_user
 
 RUN git clone https://github.com/Chocobozzz/PeerTube
 WORKDIR PeerTube
 RUN npm install
 RUN npm run build
 
-ADD peertube_start.sh /usr/bin/peertube_start.sh
-RUN chmod +x /usr/bin/peertube_start.sh
-
 EXPOSE 9000
 
-ENTRYPOINT ["/usr/bin/peertube_start.sh"]
+ENTRYPOINT ["/home/peertube_user/peertube_start.sh"]
