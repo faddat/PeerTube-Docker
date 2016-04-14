@@ -27,6 +27,8 @@ WORKDIR PeerTube
 RUN npm install
 RUN npm run build
 
+USER root
+
 EXPOSE 9000
 
 ENTRYPOINT ["/home/peertube_user/peertube_start.sh"]

@@ -2,4 +2,4 @@
 
 /usr/bin/mongod &
 sleep 100
-cd /root/PeerTube && npm run build && npm start
+cd /home/peertube_user/PeerTube && su peertube_user -c 'npm run build && npm start'
