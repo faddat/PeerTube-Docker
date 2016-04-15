@@ -5,7 +5,7 @@ services:
 
 before_install:
   - travis_retry docker build -t chocobozzz/peertube .
-  - docker run --publish=9000:9000 chocobozzz/peertube
+  - docker run -d --publish=9000:9000 chocobozzz/peertube
 
 script:
   - sleep 100 && curl http://localhost:9000
