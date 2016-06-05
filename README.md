@@ -4,16 +4,21 @@
 
 Dockerfile for [PeerTube](https://github.com/Chocobozzz/PeerTube).
 
-## Usage
 
-Build the image:
+## Get the image
+
+### From Docker Hub
+
+    $ docker pull chocobozzz/peertube
+
+### Build yourself
 
     $ git clone https://github.com/Chocobozzz/PeerTube-Docker
     $ cd PeerTube-Docker
-    # docker build -t yourname/peertube .
+    $ docker build -t yourname/peertube .
 
-Run the image:
+## Run the image
 
-    # docker run --publish=9000:9000 yourname/peertube
+    $ docker run --publish=9000:9000 yourname/peertube
 
-Once the server is listening, you can test it at http://localhost:9000.
+Once the server is listening, you can test it at `http://localhost:9000`.
