@@ -12,6 +12,7 @@ RUN mkdir -p /data/db
 
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 RUN apt-get -y install -y nodejs
+RUN npm install -g npm@3
 RUN npm install -g electron-prebuilt
 
 RUN useradd -m -d /home/peertube_user -s /bin/bash -p peertube_user peertube_user
