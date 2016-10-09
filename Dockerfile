@@ -5,7 +5,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main contrib non-fre
 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get -y install ffmpeg mongodb openssl
+RUN apt-get -y install ffmpeg mongodb openssl sudo curl git build-essential
 RUN apt-get clean
 
 RUN mkdir -p /data/db
