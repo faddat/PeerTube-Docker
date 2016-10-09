@@ -5,7 +5,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main contrib non-fre
 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get -y install ffmpeg mongodb openssl xvfb curl sudo git build-essential libgtk2.0-0 libgconf-2-4 libnss3 libasound2 libxtst6 libxss1 libnotify-bin
+RUN apt-get -y install ffmpeg mongodb openssl
 RUN apt-get clean
 
 RUN mkdir -p /data/db
@@ -13,7 +13,6 @@ RUN mkdir -p /data/db
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 RUN apt-get -y install -y nodejs
 RUN npm install -g npm@3
-RUN npm install -g electron-prebuilt
 
 RUN useradd -m -d /home/peertube_user -s /bin/bash -p peertube_user peertube_user
 
