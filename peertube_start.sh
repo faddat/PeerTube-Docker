@@ -6,3 +6,4 @@ cd /home/peertube_user/PeerTube
 su peertube_user 
 npm run build 
 npm start
+
