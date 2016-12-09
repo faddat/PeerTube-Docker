@@ -23,7 +23,7 @@ RUN chmod +x /home/peertube_user/peertube_start.sh
 
 USER peertube_user
 
-RUN git clone https://github.com/faddat/PeerTube
+RUN git clone https://github.com/faddat/PeerTube -b beyondbitcoin
 WORKDIR PeerTube
 RUN npm install
 RUN npm run build
