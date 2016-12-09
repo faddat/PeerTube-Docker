@@ -10,9 +10,8 @@ RUN apt-get clean
 
 RUN mkdir -p /data/db
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo bash -
 RUN apt-get -y install -y nodejs
-RUN npm install -g npm@3
 
 RUN useradd -m -d /home/peertube_user -s /bin/bash -p peertube_user peertube_user
 
@@ -24,7 +23,7 @@ RUN chmod +x /home/peertube_user/peertube_start.sh
 
 USER peertube_user
 
-RUN git clone https://github.com/Chocobozzz/PeerTube
+RUN git clone https://github.com/faddat/PeerTube
 WORKDIR PeerTube
 RUN npm install
 RUN npm run build
